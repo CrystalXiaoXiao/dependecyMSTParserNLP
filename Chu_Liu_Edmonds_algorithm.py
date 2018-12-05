@@ -1,5 +1,23 @@
 #!/usr/bin/env python3
 from collections import defaultdict, namedtuple
+import nltk
+nltk.download()
+from nltk.corpus import dependency_treebank
+
+
+
+#-----------------(a)--------------------#
+
+corpus = dependency_treebank.parsed_sents()
+trainSizeCorpus  = round(len(corpus) * 0.9)
+trainCorpus = corpus[:trainSizeCorpus]
+testCorpus = corpus[trainSizeCorpus:]
+
+
+
+#---------------(b)-------------------#
+#building the feature function -->
+
 
 
 Arc = namedtuple('Arc', ('tail', 'weight', 'head'))
